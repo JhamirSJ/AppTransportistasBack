@@ -48,18 +48,17 @@ dependencies {
 
 2. Archivo proto en la ruta app/src/main/proto:
 
-syntax = "proto3";
+package name;
 
-package greet;
-
-option go_package = "./greetpb";
-option java_package = "greetpb";
+option go_package = "./namepb";
+option java_package = "namepb";
 option java_multiple_files = true;
 
 
 3. AndroidManifest.xml:
 
 <uses-permission android:name="android.permission.INTERNET" />
+
 
 4. Terminal:
 ./gradlew :app:generateDebugProto
