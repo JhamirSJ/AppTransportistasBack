@@ -1,0 +1,16 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de compilación y temporales
+*.log
+*.exe
+
+# Go
+/bin/
+/build/
+/out/
+
+# Configuración de editores
+.vscode/
+.idea/
