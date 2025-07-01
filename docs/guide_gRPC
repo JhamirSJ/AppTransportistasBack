@@ -68,6 +68,8 @@ option java_multiple_files = true;
 5. Back en Go:
 go mod init AppTransportistasBack
 go get google.golang.org/grpc
+go get google.golang.org/protobuf
+go get github.com/go-sql-driver/mysql
 
 > Clonado:
 Instalar plugins:
@@ -75,7 +77,7 @@ Instalar plugins:
 - go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
 Genera los archivos Go desde .proto:
-- protoc --go_out=. --go-grpc_out=. saludar.proto
+- protoc --go_out=. --go-grpc_out=. despacho.proto
 
 Instala dependencias Go:
 - go mod tidy

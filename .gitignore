@@ -2,11 +2,16 @@
 .DS_Store
 Thumbs.db
 
-# Archivos de compilación y temporales
+# Archivos de compilación y binarios
 *.log
+*.out
+*.test
 *.exe
+*.dll
+*.so
+*.dylib
 
-# Go
+# Directorios comunes de salida
 /bin/
 /build/
 /out/
@@ -14,3 +19,8 @@ Thumbs.db
 # Configuración de editores
 .vscode/
 .idea/
+*.swp
+
+# Archivos Go innecesarios
+/go.sum.tmp
+
