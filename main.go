@@ -6,8 +6,8 @@ import (
 
 	"google.golang.org/grpc"
 
+	"AppTransportistasBack/apptransportistaspb"
 	"AppTransportistasBack/config"
-	"AppTransportistasBack/despachopb"
 	"AppTransportistasBack/handlers"
 )
 
@@ -25,8 +25,8 @@ func main() {
 	grpcServer := grpc.NewServer()
 
 	// Registrar el servicio DespachoService
-	despachoService := &handlers.DespachoServer{}
-	despachopb.RegisterDespachoServiceServer(grpcServer, despachoService)
+	despachoService := &handlers.AppTransportistasServer{}
+	apptransportistaspb.RegisterAppTransportistasServiceServer(grpcServer, despachoService)
 
 	log.Println("🚀 Servidor gRPC corriendo en el puerto 50051")
 

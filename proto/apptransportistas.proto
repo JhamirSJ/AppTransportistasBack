@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package apptransportistas;
+
+option go_package = "../apptransportistaspb";
+
+service AppTransportistasService {
+  rpc EnviarEntregas (stream Guia) returns (EntregaResponse);
+  rpc ObtenerDespachos (AppTransportistasRequest) returns (stream Guia);
+  rpc EnviarDepositos (stream Deposito) returns (DepositoResponse);
+}
+
+message AppTransportistasRequest {
+  int32 transportista_id = 1;
+}
+
+message EntregaResponse {
+  string mensaje = 1;
+  int32 total_registradas = 2;
+}
+
+message Guia {
+  string numero = 1;
+  string fecha = 2;         // formato: "2025-07-01"
+  string codigo_cliente = 3;
+  string nombre_cliente = 4;
+  string nro_comprobante = 5;
+  double importe_x_cobrar = 6;
+  double monto_cobrado = 7;
+  bool entregada = 8;
+  repeated Producto productos = 9;
+}
+
+message Producto {
+  string nombre = 1;
+  int32 cantidad = 2;
+}
+
+message Deposito {
+  string nro_operacion = 1;
+  string fecha = 2;
+  int32 id_banco = 3;
+  double monto = 4;
+  bytes comprobante = 5;
+}
+
+message DepositoResponse {
+  string mensaje = 1;
+  int32 total_registrados = 2;
+}

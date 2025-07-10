@@ -1,6 +1,3 @@
-SELECT * FROM guia
-SELECT * FROM producto
-
 INSERT INTO guia (numero, fecha, codigo_cliente, nombre_cliente, nro_comprobante, importe_x_cobrar)
 VALUES 
 ('G-001', '2025-06-25', 'CL001', 'Bodega María', 'F001-0001', 145.90),

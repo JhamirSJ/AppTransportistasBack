@@ -2,7 +2,7 @@
 	
 plugins {
 
-    id("com.google.protobuf") version "0.9.4"
+    id("com.google.protobuf") version "0.9.5"
 
 }
 ___________________________________________________________________________
@@ -20,38 +20,42 @@ protobuf {
     }
     plugins {
         create("grpc") {
-            artifact = "io.grpc:protoc-gen-grpc-java:1.63.0"
+            artifact = "io.grpc:protoc-gen-grpc-java:1.73.0"
         }
     }
     generateProtoTasks {
         all().configureEach {
             plugins {
-                create("grpc")
+                create("grpc") {
+                    option("lite")
+                }
             }
             builtins {
-                create("java")
+                create("java") {
+                    option("lite")
+                }
             }
         }
     }
+
 }
 ___________________________________________________________________________
 
 dependencies {
 
-    implementation("io.grpc:grpc-okhttp:1.63.0")
-    implementation("io.grpc:grpc-protobuf:1.63.0")
-    implementation("io.grpc:grpc-stub:1.63.0")
+    implementation("io.grpc:grpc-okhttp:1.73.0")
+    implementation("io.grpc:grpc-protobuf-lite:1.73.0")
+    implementation("io.grpc:grpc-stub:1.73.0")
     implementation("javax.annotation:javax.annotation-api:1.3.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
 }
 
 2. Archivo proto en la ruta app/src/main/proto:
 
-package name;
+package apptransportistas;
 
-option go_package = "./namepb";
-option java_package = "namepb";
+option go_package = "./apptransportistaspb";
+option java_package = "apptransportistaspb";
 option java_multiple_files = true;
 
 
@@ -67,6 +71,7 @@ option java_multiple_files = true;
 
 5. Back en Go:
 go mod init AppTransportistasBack
+go mod tidy
 go get google.golang.org/grpc
 go get google.golang.org/protobuf
 go get github.com/go-sql-driver/mysql
@@ -76,8 +81,7 @@ Instalar plugins:
 - go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 - go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
-Genera los archivos Go desde .proto:
-- protoc --go_out=. --go-grpc_out=. despacho.proto
+___________________________________________________________________________
 
-Instala dependencias Go:
-- go mod tidy
+Genera los archivos Go desde .proto:
+- protoc --go_out=. --go-grpc_out=. apptransportistas.proto
