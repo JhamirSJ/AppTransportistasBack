@@ -19,9 +19,10 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AppTransportistasService_EnviarEntregas_FullMethodName   = "/apptransportistas.AppTransportistasService/EnviarEntregas"
-	AppTransportistasService_ObtenerDespachos_FullMethodName = "/apptransportistas.AppTransportistasService/ObtenerDespachos"
-	AppTransportistasService_EnviarDepositos_FullMethodName  = "/apptransportistas.AppTransportistasService/EnviarDepositos"
+	AppTransportistasService_EnviarEntregas_FullMethodName       = "/apptransportistas.AppTransportistasService/EnviarEntregas"
+	AppTransportistasService_ObtenerDespachos_FullMethodName     = "/apptransportistas.AppTransportistasService/ObtenerDespachos"
+	AppTransportistasService_EnviarDepositos_FullMethodName      = "/apptransportistas.AppTransportistasService/EnviarDepositos"
+	AppTransportistasService_EnviarPruebasEntrega_FullMethodName = "/apptransportistas.AppTransportistasService/EnviarPruebasEntrega"
 )
 
 // AppTransportistasServiceClient is the client API for AppTransportistasService service.
@@ -29,8 +30,9 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AppTransportistasServiceClient interface {
 	EnviarEntregas(ctx context.Context, opts ...grpc.CallOption) (grpc.ClientStreamingClient[Guia, EntregaResponse], error)
-	ObtenerDespachos(ctx context.Context, in *AppTransportistasRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Guia], error)
+	ObtenerDespachos(ctx context.Context, in *DespachoRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Guia], error)
 	EnviarDepositos(ctx context.Context, opts ...grpc.CallOption) (grpc.ClientStreamingClient[Deposito, DepositoResponse], error)
+	EnviarPruebasEntrega(ctx context.Context, opts ...grpc.CallOption) (grpc.ClientStreamingClient[PruebaEntrega, PruebaEntregaResponse], error)
 }
 
 type appTransportistasServiceClient struct {
@@ -54,13 +56,13 @@ func (c *appTransportistasServiceClient) EnviarEntregas(ctx context.Context, opt
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type AppTransportistasService_EnviarEntregasClient = grpc.ClientStreamingClient[Guia, EntregaResponse]
 
-func (c *appTransportistasServiceClient) ObtenerDespachos(ctx context.Context, in *AppTransportistasRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Guia], error) {
+func (c *appTransportistasServiceClient) ObtenerDespachos(ctx context.Context, in *DespachoRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Guia], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	stream, err := c.cc.NewStream(ctx, &AppTransportistasService_ServiceDesc.Streams[1], AppTransportistasService_ObtenerDespachos_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &grpc.GenericClientStream[AppTransportistasRequest, Guia]{ClientStream: stream}
+	x := &grpc.GenericClientStream[DespachoRequest, Guia]{ClientStream: stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -86,13 +88,27 @@ func (c *appTransportistasServiceClient) EnviarDepositos(ctx context.Context, op
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type AppTransportistasService_EnviarDepositosClient = grpc.ClientStreamingClient[Deposito, DepositoResponse]
 
+func (c *appTransportistasServiceClient) EnviarPruebasEntrega(ctx context.Context, opts ...grpc.CallOption) (grpc.ClientStreamingClient[PruebaEntrega, PruebaEntregaResponse], error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	stream, err := c.cc.NewStream(ctx, &AppTransportistasService_ServiceDesc.Streams[3], AppTransportistasService_EnviarPruebasEntrega_FullMethodName, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &grpc.GenericClientStream[PruebaEntrega, PruebaEntregaResponse]{ClientStream: stream}
+	return x, nil
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type AppTransportistasService_EnviarPruebasEntregaClient = grpc.ClientStreamingClient[PruebaEntrega, PruebaEntregaResponse]
+
 // AppTransportistasServiceServer is the server API for AppTransportistasService service.
 // All implementations must embed UnimplementedAppTransportistasServiceServer
 // for forward compatibility.
 type AppTransportistasServiceServer interface {
 	EnviarEntregas(grpc.ClientStreamingServer[Guia, EntregaResponse]) error
-	ObtenerDespachos(*AppTransportistasRequest, grpc.ServerStreamingServer[Guia]) error
+	ObtenerDespachos(*DespachoRequest, grpc.ServerStreamingServer[Guia]) error
 	EnviarDepositos(grpc.ClientStreamingServer[Deposito, DepositoResponse]) error
+	EnviarPruebasEntrega(grpc.ClientStreamingServer[PruebaEntrega, PruebaEntregaResponse]) error
 	mustEmbedUnimplementedAppTransportistasServiceServer()
 }
 
@@ -106,11 +122,14 @@ type UnimplementedAppTransportistasServiceServer struct{}
 func (UnimplementedAppTransportistasServiceServer) EnviarEntregas(grpc.ClientStreamingServer[Guia, EntregaResponse]) error {
 	return status.Errorf(codes.Unimplemented, "method EnviarEntregas not implemented")
 }
-func (UnimplementedAppTransportistasServiceServer) ObtenerDespachos(*AppTransportistasRequest, grpc.ServerStreamingServer[Guia]) error {
+func (UnimplementedAppTransportistasServiceServer) ObtenerDespachos(*DespachoRequest, grpc.ServerStreamingServer[Guia]) error {
 	return status.Errorf(codes.Unimplemented, "method ObtenerDespachos not implemented")
 }
 func (UnimplementedAppTransportistasServiceServer) EnviarDepositos(grpc.ClientStreamingServer[Deposito, DepositoResponse]) error {
 	return status.Errorf(codes.Unimplemented, "method EnviarDepositos not implemented")
+}
+func (UnimplementedAppTransportistasServiceServer) EnviarPruebasEntrega(grpc.ClientStreamingServer[PruebaEntrega, PruebaEntregaResponse]) error {
+	return status.Errorf(codes.Unimplemented, "method EnviarPruebasEntrega not implemented")
 }
 func (UnimplementedAppTransportistasServiceServer) mustEmbedUnimplementedAppTransportistasServiceServer() {
 }
@@ -142,11 +161,11 @@ func _AppTransportistasService_EnviarEntregas_Handler(srv interface{}, stream gr
 type AppTransportistasService_EnviarEntregasServer = grpc.ClientStreamingServer[Guia, EntregaResponse]
 
 func _AppTransportistasService_ObtenerDespachos_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(AppTransportistasRequest)
+	m := new(DespachoRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(AppTransportistasServiceServer).ObtenerDespachos(m, &grpc.GenericServerStream[AppTransportistasRequest, Guia]{ServerStream: stream})
+	return srv.(AppTransportistasServiceServer).ObtenerDespachos(m, &grpc.GenericServerStream[DespachoRequest, Guia]{ServerStream: stream})
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
@@ -158,6 +177,13 @@ func _AppTransportistasService_EnviarDepositos_Handler(srv interface{}, stream g
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type AppTransportistasService_EnviarDepositosServer = grpc.ClientStreamingServer[Deposito, DepositoResponse]
+
+func _AppTransportistasService_EnviarPruebasEntrega_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(AppTransportistasServiceServer).EnviarPruebasEntrega(&grpc.GenericServerStream[PruebaEntrega, PruebaEntregaResponse]{ServerStream: stream})
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type AppTransportistasService_EnviarPruebasEntregaServer = grpc.ClientStreamingServer[PruebaEntrega, PruebaEntregaResponse]
 
 // AppTransportistasService_ServiceDesc is the grpc.ServiceDesc for AppTransportistasService service.
 // It's only intended for direct use with grpc.RegisterService,
@@ -180,6 +206,11 @@ var AppTransportistasService_ServiceDesc = grpc.ServiceDesc{
 		{
 			StreamName:    "EnviarDepositos",
 			Handler:       _AppTransportistasService_EnviarDepositos_Handler,
+			ClientStreams: true,
+		},
+		{
+			StreamName:    "EnviarPruebasEntrega",
+			Handler:       _AppTransportistasService_EnviarPruebasEntrega_Handler,
 			ClientStreams: true,
 		},
 	},

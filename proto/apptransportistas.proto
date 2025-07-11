@@ -6,15 +6,26 @@ option go_package = "../apptransportistaspb";
 
 service AppTransportistasService {
   rpc EnviarEntregas (stream Guia) returns (EntregaResponse);
-  rpc ObtenerDespachos (AppTransportistasRequest) returns (stream Guia);
+  rpc ObtenerDespachos (DespachoRequest) returns (stream Guia);
   rpc EnviarDepositos (stream Deposito) returns (DepositoResponse);
+  rpc EnviarPruebasEntrega (stream PruebaEntrega) returns (PruebaEntregaResponse);
 }
 
-message AppTransportistasRequest {
+message DespachoRequest {
   int32 transportista_id = 1;
 }
 
 message EntregaResponse {
+  string mensaje = 1;
+  int32 total_registradas = 2;
+}
+
+message DepositoResponse {
+  string mensaje = 1;
+  int32 total_registrados = 2;
+}
+
+message PruebaEntregaResponse {
   string mensaje = 1;
   int32 total_registradas = 2;
 }
@@ -44,7 +55,9 @@ message Deposito {
   bytes comprobante = 5;
 }
 
-message DepositoResponse {
-  string mensaje = 1;
-  int32 total_registrados = 2;
+message PruebaEntrega {
+  string numero_guia = 1;
+  string fecha_registro = 2; // formato: "2025-07-11"
+  bytes firma = 3;           // Firma como imagen (PNG comprimido)
+  bytes imagen = 4;          // Imagen como comprobante (JPG o PNG comprimido)
 }
