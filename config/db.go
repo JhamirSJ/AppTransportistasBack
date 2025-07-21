@@ -16,7 +16,7 @@ func InitDB() {
 	password := "admin"
 	host := "localhost"
 	port := "3306"
-	dbname := "sanjorge_despacho_db"
+	dbname := "sanjorge_transportistas_db"
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true", user, password, host, port, dbname)
 
