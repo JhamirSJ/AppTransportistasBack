@@ -29,3 +29,11 @@ INSERT INTO producto (id_guia, nombre, cantidad) VALUES
 (5, 'Galleta Vainilla 150g', 8),
 (5, 'Galleta Animalitos 180g', 4),
 (5, 'Galleta Naranja 150g', 6);
+
+INSERT INTO banco (nombre) VALUES
+('BCP'),
+('BBVA'),
+('Interbank'),
+('Scotiabank'),
+('Banco de la Nación')
+ON DUPLICATE KEY UPDATE nombre = nombre;
