@@ -65,166 +65,10 @@ func (x *DespachoRequest) GetTransportistaId() int32 {
 	return 0
 }
 
-type EntregaResponse struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Mensaje          string                 `protobuf:"bytes,1,opt,name=mensaje,proto3" json:"mensaje,omitempty"`
-	TotalRegistradas int32                  `protobuf:"varint,2,opt,name=total_registradas,json=totalRegistradas,proto3" json:"total_registradas,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *EntregaResponse) Reset() {
-	*x = EntregaResponse{}
-	mi := &file_apptransportistas_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EntregaResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EntregaResponse) ProtoMessage() {}
-
-func (x *EntregaResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_apptransportistas_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EntregaResponse.ProtoReflect.Descriptor instead.
-func (*EntregaResponse) Descriptor() ([]byte, []int) {
-	return file_apptransportistas_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *EntregaResponse) GetMensaje() string {
-	if x != nil {
-		return x.Mensaje
-	}
-	return ""
-}
-
-func (x *EntregaResponse) GetTotalRegistradas() int32 {
-	if x != nil {
-		return x.TotalRegistradas
-	}
-	return 0
-}
-
-type DepositoResponse struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Mensaje          string                 `protobuf:"bytes,1,opt,name=mensaje,proto3" json:"mensaje,omitempty"`
-	TotalRegistrados int32                  `protobuf:"varint,2,opt,name=total_registrados,json=totalRegistrados,proto3" json:"total_registrados,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *DepositoResponse) Reset() {
-	*x = DepositoResponse{}
-	mi := &file_apptransportistas_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DepositoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DepositoResponse) ProtoMessage() {}
-
-func (x *DepositoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_apptransportistas_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DepositoResponse.ProtoReflect.Descriptor instead.
-func (*DepositoResponse) Descriptor() ([]byte, []int) {
-	return file_apptransportistas_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *DepositoResponse) GetMensaje() string {
-	if x != nil {
-		return x.Mensaje
-	}
-	return ""
-}
-
-func (x *DepositoResponse) GetTotalRegistrados() int32 {
-	if x != nil {
-		return x.TotalRegistrados
-	}
-	return 0
-}
-
-type PruebaEntregaResponse struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Mensaje          string                 `protobuf:"bytes,1,opt,name=mensaje,proto3" json:"mensaje,omitempty"`
-	TotalRegistradas int32                  `protobuf:"varint,2,opt,name=total_registradas,json=totalRegistradas,proto3" json:"total_registradas,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *PruebaEntregaResponse) Reset() {
-	*x = PruebaEntregaResponse{}
-	mi := &file_apptransportistas_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PruebaEntregaResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PruebaEntregaResponse) ProtoMessage() {}
-
-func (x *PruebaEntregaResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_apptransportistas_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PruebaEntregaResponse.ProtoReflect.Descriptor instead.
-func (*PruebaEntregaResponse) Descriptor() ([]byte, []int) {
-	return file_apptransportistas_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *PruebaEntregaResponse) GetMensaje() string {
-	if x != nil {
-		return x.Mensaje
-	}
-	return ""
-}
-
-func (x *PruebaEntregaResponse) GetTotalRegistradas() int32 {
-	if x != nil {
-		return x.TotalRegistradas
-	}
-	return 0
-}
-
 type Guia struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	Numero         string                 `protobuf:"bytes,1,opt,name=numero,proto3" json:"numero,omitempty"`
-	Fecha          string                 `protobuf:"bytes,2,opt,name=fecha,proto3" json:"fecha,omitempty"` // formato: "2025-07-01"
+	Fecha          string                 `protobuf:"bytes,2,opt,name=fecha,proto3" json:"fecha,omitempty"`
 	CodigoCliente  string                 `protobuf:"bytes,3,opt,name=codigo_cliente,json=codigoCliente,proto3" json:"codigo_cliente,omitempty"`
 	NombreCliente  string                 `protobuf:"bytes,4,opt,name=nombre_cliente,json=nombreCliente,proto3" json:"nombre_cliente,omitempty"`
 	NroComprobante string                 `protobuf:"bytes,5,opt,name=nro_comprobante,json=nroComprobante,proto3" json:"nro_comprobante,omitempty"`
@@ -238,7 +82,7 @@ type Guia struct {
 
 func (x *Guia) Reset() {
 	*x = Guia{}
-	mi := &file_apptransportistas_proto_msgTypes[4]
+	mi := &file_apptransportistas_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -250,7 +94,7 @@ func (x *Guia) String() string {
 func (*Guia) ProtoMessage() {}
 
 func (x *Guia) ProtoReflect() protoreflect.Message {
-	mi := &file_apptransportistas_proto_msgTypes[4]
+	mi := &file_apptransportistas_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -263,7 +107,7 @@ func (x *Guia) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Guia.ProtoReflect.Descriptor instead.
 func (*Guia) Descriptor() ([]byte, []int) {
-	return file_apptransportistas_proto_rawDescGZIP(), []int{4}
+	return file_apptransportistas_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Guia) GetNumero() string {
@@ -339,7 +183,7 @@ type Producto struct {
 
 func (x *Producto) Reset() {
 	*x = Producto{}
-	mi := &file_apptransportistas_proto_msgTypes[5]
+	mi := &file_apptransportistas_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -351,7 +195,7 @@ func (x *Producto) String() string {
 func (*Producto) ProtoMessage() {}
 
 func (x *Producto) ProtoReflect() protoreflect.Message {
-	mi := &file_apptransportistas_proto_msgTypes[5]
+	mi := &file_apptransportistas_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -364,7 +208,7 @@ func (x *Producto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Producto.ProtoReflect.Descriptor instead.
 func (*Producto) Descriptor() ([]byte, []int) {
-	return file_apptransportistas_proto_rawDescGZIP(), []int{5}
+	return file_apptransportistas_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Producto) GetNombre() string {
@@ -381,32 +225,29 @@ func (x *Producto) GetCantidad() int32 {
 	return 0
 }
 
-type Deposito struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	NroOperacion  string                 `protobuf:"bytes,1,opt,name=nro_operacion,json=nroOperacion,proto3" json:"nro_operacion,omitempty"`
-	Fecha         string                 `protobuf:"bytes,2,opt,name=fecha,proto3" json:"fecha,omitempty"`
-	IdBanco       int32                  `protobuf:"varint,3,opt,name=id_banco,json=idBanco,proto3" json:"id_banco,omitempty"`
-	Monto         float64                `protobuf:"fixed64,4,opt,name=monto,proto3" json:"monto,omitempty"`
-	Comprobante   []byte                 `protobuf:"bytes,5,opt,name=comprobante,proto3" json:"comprobante,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+type EntregaResponse struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Mensaje          string                 `protobuf:"bytes,1,opt,name=mensaje,proto3" json:"mensaje,omitempty"`
+	TotalRegistradas int32                  `protobuf:"varint,2,opt,name=total_registradas,json=totalRegistradas,proto3" json:"total_registradas,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
-func (x *Deposito) Reset() {
-	*x = Deposito{}
-	mi := &file_apptransportistas_proto_msgTypes[6]
+func (x *EntregaResponse) Reset() {
+	*x = EntregaResponse{}
+	mi := &file_apptransportistas_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Deposito) String() string {
+func (x *EntregaResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Deposito) ProtoMessage() {}
+func (*EntregaResponse) ProtoMessage() {}
 
-func (x *Deposito) ProtoReflect() protoreflect.Message {
-	mi := &file_apptransportistas_proto_msgTypes[6]
+func (x *EntregaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_apptransportistas_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -417,59 +258,38 @@ func (x *Deposito) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Deposito.ProtoReflect.Descriptor instead.
-func (*Deposito) Descriptor() ([]byte, []int) {
-	return file_apptransportistas_proto_rawDescGZIP(), []int{6}
+// Deprecated: Use EntregaResponse.ProtoReflect.Descriptor instead.
+func (*EntregaResponse) Descriptor() ([]byte, []int) {
+	return file_apptransportistas_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *Deposito) GetNroOperacion() string {
+func (x *EntregaResponse) GetMensaje() string {
 	if x != nil {
-		return x.NroOperacion
+		return x.Mensaje
 	}
 	return ""
 }
 
-func (x *Deposito) GetFecha() string {
+func (x *EntregaResponse) GetTotalRegistradas() int32 {
 	if x != nil {
-		return x.Fecha
-	}
-	return ""
-}
-
-func (x *Deposito) GetIdBanco() int32 {
-	if x != nil {
-		return x.IdBanco
+		return x.TotalRegistradas
 	}
 	return 0
-}
-
-func (x *Deposito) GetMonto() float64 {
-	if x != nil {
-		return x.Monto
-	}
-	return 0
-}
-
-func (x *Deposito) GetComprobante() []byte {
-	if x != nil {
-		return x.Comprobante
-	}
-	return nil
 }
 
 type PruebaEntrega struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	NumeroGuia    string                 `protobuf:"bytes,1,opt,name=numero_guia,json=numeroGuia,proto3" json:"numero_guia,omitempty"`
-	FechaRegistro string                 `protobuf:"bytes,2,opt,name=fecha_registro,json=fechaRegistro,proto3" json:"fecha_registro,omitempty"` // formato: "2025-07-11"
-	Firma         []byte                 `protobuf:"bytes,3,opt,name=firma,proto3" json:"firma,omitempty"`                                      // Firma como imagen (PNG comprimido)
-	Imagen        []byte                 `protobuf:"bytes,4,opt,name=imagen,proto3" json:"imagen,omitempty"`                                    // Imagen como comprobante (JPG o PNG comprimido)
+	FechaRegistro string                 `protobuf:"bytes,2,opt,name=fecha_registro,json=fechaRegistro,proto3" json:"fecha_registro,omitempty"`
+	Firma         []byte                 `protobuf:"bytes,3,opt,name=firma,proto3" json:"firma,omitempty"`
+	Imagen        []byte                 `protobuf:"bytes,4,opt,name=imagen,proto3" json:"imagen,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PruebaEntrega) Reset() {
 	*x = PruebaEntrega{}
-	mi := &file_apptransportistas_proto_msgTypes[7]
+	mi := &file_apptransportistas_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -481,7 +301,7 @@ func (x *PruebaEntrega) String() string {
 func (*PruebaEntrega) ProtoMessage() {}
 
 func (x *PruebaEntrega) ProtoReflect() protoreflect.Message {
-	mi := &file_apptransportistas_proto_msgTypes[7]
+	mi := &file_apptransportistas_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -494,7 +314,7 @@ func (x *PruebaEntrega) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PruebaEntrega.ProtoReflect.Descriptor instead.
 func (*PruebaEntrega) Descriptor() ([]byte, []int) {
-	return file_apptransportistas_proto_rawDescGZIP(), []int{7}
+	return file_apptransportistas_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *PruebaEntrega) GetNumeroGuia() string {
@@ -525,22 +345,289 @@ func (x *PruebaEntrega) GetImagen() []byte {
 	return nil
 }
 
+type PruebaEntregaResponse struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Mensaje          string                 `protobuf:"bytes,1,opt,name=mensaje,proto3" json:"mensaje,omitempty"`
+	TotalRegistradas int32                  `protobuf:"varint,2,opt,name=total_registradas,json=totalRegistradas,proto3" json:"total_registradas,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *PruebaEntregaResponse) Reset() {
+	*x = PruebaEntregaResponse{}
+	mi := &file_apptransportistas_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PruebaEntregaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PruebaEntregaResponse) ProtoMessage() {}
+
+func (x *PruebaEntregaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_apptransportistas_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PruebaEntregaResponse.ProtoReflect.Descriptor instead.
+func (*PruebaEntregaResponse) Descriptor() ([]byte, []int) {
+	return file_apptransportistas_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *PruebaEntregaResponse) GetMensaje() string {
+	if x != nil {
+		return x.Mensaje
+	}
+	return ""
+}
+
+func (x *PruebaEntregaResponse) GetTotalRegistradas() int32 {
+	if x != nil {
+		return x.TotalRegistradas
+	}
+	return 0
+}
+
+type LoginRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Usuario       string                 `protobuf:"bytes,1,opt,name=usuario,proto3" json:"usuario,omitempty"`
+	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoginRequest) Reset() {
+	*x = LoginRequest{}
+	mi := &file_apptransportistas_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoginRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoginRequest) ProtoMessage() {}
+
+func (x *LoginRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_apptransportistas_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoginRequest.ProtoReflect.Descriptor instead.
+func (*LoginRequest) Descriptor() ([]byte, []int) {
+	return file_apptransportistas_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *LoginRequest) GetUsuario() string {
+	if x != nil {
+		return x.Usuario
+	}
+	return ""
+}
+
+func (x *LoginRequest) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+type LoginResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Mensaje       string                 `protobuf:"bytes,2,opt,name=mensaje,proto3" json:"mensaje,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoginResponse) Reset() {
+	*x = LoginResponse{}
+	mi := &file_apptransportistas_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoginResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoginResponse) ProtoMessage() {}
+
+func (x *LoginResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_apptransportistas_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoginResponse.ProtoReflect.Descriptor instead.
+func (*LoginResponse) Descriptor() ([]byte, []int) {
+	return file_apptransportistas_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *LoginResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *LoginResponse) GetMensaje() string {
+	if x != nil {
+		return x.Mensaje
+	}
+	return ""
+}
+
+type Ubicacion struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	DeviceId      string                 `protobuf:"bytes,1,opt,name=device_id,json=deviceId,proto3" json:"device_id,omitempty"`
+	Latitud       float64                `protobuf:"fixed64,2,opt,name=latitud,proto3" json:"latitud,omitempty"`
+	Longitud      float64                `protobuf:"fixed64,3,opt,name=longitud,proto3" json:"longitud,omitempty"`
+	FechaHora     string                 `protobuf:"bytes,4,opt,name=fecha_hora,json=fechaHora,proto3" json:"fecha_hora,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Ubicacion) Reset() {
+	*x = Ubicacion{}
+	mi := &file_apptransportistas_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Ubicacion) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Ubicacion) ProtoMessage() {}
+
+func (x *Ubicacion) ProtoReflect() protoreflect.Message {
+	mi := &file_apptransportistas_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Ubicacion.ProtoReflect.Descriptor instead.
+func (*Ubicacion) Descriptor() ([]byte, []int) {
+	return file_apptransportistas_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *Ubicacion) GetDeviceId() string {
+	if x != nil {
+		return x.DeviceId
+	}
+	return ""
+}
+
+func (x *Ubicacion) GetLatitud() float64 {
+	if x != nil {
+		return x.Latitud
+	}
+	return 0
+}
+
+func (x *Ubicacion) GetLongitud() float64 {
+	if x != nil {
+		return x.Longitud
+	}
+	return 0
+}
+
+func (x *Ubicacion) GetFechaHora() string {
+	if x != nil {
+		return x.FechaHora
+	}
+	return ""
+}
+
+type TrackingResponse struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Mensaje          string                 `protobuf:"bytes,1,opt,name=mensaje,proto3" json:"mensaje,omitempty"`
+	TotalRegistrados int32                  `protobuf:"varint,2,opt,name=totalRegistrados,proto3" json:"totalRegistrados,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *TrackingResponse) Reset() {
+	*x = TrackingResponse{}
+	mi := &file_apptransportistas_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TrackingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TrackingResponse) ProtoMessage() {}
+
+func (x *TrackingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_apptransportistas_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TrackingResponse.ProtoReflect.Descriptor instead.
+func (*TrackingResponse) Descriptor() ([]byte, []int) {
+	return file_apptransportistas_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *TrackingResponse) GetMensaje() string {
+	if x != nil {
+		return x.Mensaje
+	}
+	return ""
+}
+
+func (x *TrackingResponse) GetTotalRegistrados() int32 {
+	if x != nil {
+		return x.TotalRegistrados
+	}
+	return 0
+}
+
 var File_apptransportistas_proto protoreflect.FileDescriptor
 
 const file_apptransportistas_proto_rawDesc = "" +
 	"\n" +
 	"\x17apptransportistas.proto\x12\x11apptransportistas\"<\n" +
 	"\x0fDespachoRequest\x12)\n" +
-	"\x10transportista_id\x18\x01 \x01(\x05R\x0ftransportistaId\"X\n" +
-	"\x0fEntregaResponse\x12\x18\n" +
-	"\amensaje\x18\x01 \x01(\tR\amensaje\x12+\n" +
-	"\x11total_registradas\x18\x02 \x01(\x05R\x10totalRegistradas\"Y\n" +
-	"\x10DepositoResponse\x12\x18\n" +
-	"\amensaje\x18\x01 \x01(\tR\amensaje\x12+\n" +
-	"\x11total_registrados\x18\x02 \x01(\x05R\x10totalRegistrados\"^\n" +
-	"\x15PruebaEntregaResponse\x12\x18\n" +
-	"\amensaje\x18\x01 \x01(\tR\amensaje\x12+\n" +
-	"\x11total_registradas\x18\x02 \x01(\x05R\x10totalRegistradas\"\xd3\x02\n" +
+	"\x10transportista_id\x18\x01 \x01(\x05R\x0ftransportistaId\"\xd3\x02\n" +
 	"\x04Guia\x12\x16\n" +
 	"\x06numero\x18\x01 \x01(\tR\x06numero\x12\x14\n" +
 	"\x05fecha\x18\x02 \x01(\tR\x05fecha\x12%\n" +
@@ -553,24 +640,41 @@ const file_apptransportistas_proto_rawDesc = "" +
 	"\tproductos\x18\t \x03(\v2\x1b.apptransportistas.ProductoR\tproductos\">\n" +
 	"\bProducto\x12\x16\n" +
 	"\x06nombre\x18\x01 \x01(\tR\x06nombre\x12\x1a\n" +
-	"\bcantidad\x18\x02 \x01(\x05R\bcantidad\"\x98\x01\n" +
-	"\bDeposito\x12#\n" +
-	"\rnro_operacion\x18\x01 \x01(\tR\fnroOperacion\x12\x14\n" +
-	"\x05fecha\x18\x02 \x01(\tR\x05fecha\x12\x19\n" +
-	"\bid_banco\x18\x03 \x01(\x05R\aidBanco\x12\x14\n" +
-	"\x05monto\x18\x04 \x01(\x01R\x05monto\x12 \n" +
-	"\vcomprobante\x18\x05 \x01(\fR\vcomprobante\"\x85\x01\n" +
+	"\bcantidad\x18\x02 \x01(\x05R\bcantidad\"X\n" +
+	"\x0fEntregaResponse\x12\x18\n" +
+	"\amensaje\x18\x01 \x01(\tR\amensaje\x12+\n" +
+	"\x11total_registradas\x18\x02 \x01(\x05R\x10totalRegistradas\"\x85\x01\n" +
 	"\rPruebaEntrega\x12\x1f\n" +
 	"\vnumero_guia\x18\x01 \x01(\tR\n" +
 	"numeroGuia\x12%\n" +
 	"\x0efecha_registro\x18\x02 \x01(\tR\rfechaRegistro\x12\x14\n" +
 	"\x05firma\x18\x03 \x01(\fR\x05firma\x12\x16\n" +
-	"\x06imagen\x18\x04 \x01(\fR\x06imagen2\xfb\x02\n" +
-	"\x18AppTransportistasService\x12O\n" +
-	"\x0eEnviarEntregas\x12\x17.apptransportistas.Guia\x1a\".apptransportistas.EntregaResponse(\x01\x12Q\n" +
-	"\x10ObtenerDespachos\x12\".apptransportistas.DespachoRequest\x1a\x17.apptransportistas.Guia0\x01\x12U\n" +
-	"\x0fEnviarDepositos\x12\x1b.apptransportistas.Deposito\x1a#.apptransportistas.DepositoResponse(\x01\x12d\n" +
-	"\x14EnviarPruebasEntrega\x12 .apptransportistas.PruebaEntrega\x1a(.apptransportistas.PruebaEntregaResponse(\x01B\x18Z\x16../apptransportistaspbb\x06proto3"
+	"\x06imagen\x18\x04 \x01(\fR\x06imagen\"^\n" +
+	"\x15PruebaEntregaResponse\x12\x18\n" +
+	"\amensaje\x18\x01 \x01(\tR\amensaje\x12+\n" +
+	"\x11total_registradas\x18\x02 \x01(\x05R\x10totalRegistradas\"D\n" +
+	"\fLoginRequest\x12\x18\n" +
+	"\ausuario\x18\x01 \x01(\tR\ausuario\x12\x1a\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\"C\n" +
+	"\rLoginResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amensaje\x18\x02 \x01(\tR\amensaje\"}\n" +
+	"\tUbicacion\x12\x1b\n" +
+	"\tdevice_id\x18\x01 \x01(\tR\bdeviceId\x12\x18\n" +
+	"\alatitud\x18\x02 \x01(\x01R\alatitud\x12\x1a\n" +
+	"\blongitud\x18\x03 \x01(\x01R\blongitud\x12\x1d\n" +
+	"\n" +
+	"fecha_hora\x18\x04 \x01(\tR\tfechaHora\"X\n" +
+	"\x10TrackingResponse\x12\x18\n" +
+	"\amensaje\x18\x01 \x01(\tR\amensaje\x12*\n" +
+	"\x10totalRegistrados\x18\x02 \x01(\x05R\x10totalRegistrados2\xcc\x03\n" +
+	"\x18AppTransportistasService\x12Q\n" +
+	"\x10ObtenerDespachos\x12\".apptransportistas.DespachoRequest\x1a\x17.apptransportistas.Guia0\x01\x12O\n" +
+	"\x0eEnviarEntregas\x12\x17.apptransportistas.Guia\x1a\".apptransportistas.EntregaResponse(\x01\x12d\n" +
+	"\x14EnviarPruebasEntrega\x12 .apptransportistas.PruebaEntrega\x1a(.apptransportistas.PruebaEntregaResponse(\x01\x12O\n" +
+	"\n" +
+	"LoginAdmin\x12\x1f.apptransportistas.LoginRequest\x1a .apptransportistas.LoginResponse\x12U\n" +
+	"\x0eEnviarTracking\x12\x1c.apptransportistas.Ubicacion\x1a#.apptransportistas.TrackingResponse(\x01B\x18Z\x16../apptransportistaspbb\x06proto3"
 
 var (
 	file_apptransportistas_proto_rawDescOnce sync.Once
@@ -584,29 +688,33 @@ func file_apptransportistas_proto_rawDescGZIP() []byte {
 	return file_apptransportistas_proto_rawDescData
 }
 
-var file_apptransportistas_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_apptransportistas_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_apptransportistas_proto_goTypes = []any{
 	(*DespachoRequest)(nil),       // 0: apptransportistas.DespachoRequest
-	(*EntregaResponse)(nil),       // 1: apptransportistas.EntregaResponse
-	(*DepositoResponse)(nil),      // 2: apptransportistas.DepositoResponse
-	(*PruebaEntregaResponse)(nil), // 3: apptransportistas.PruebaEntregaResponse
-	(*Guia)(nil),                  // 4: apptransportistas.Guia
-	(*Producto)(nil),              // 5: apptransportistas.Producto
-	(*Deposito)(nil),              // 6: apptransportistas.Deposito
-	(*PruebaEntrega)(nil),         // 7: apptransportistas.PruebaEntrega
+	(*Guia)(nil),                  // 1: apptransportistas.Guia
+	(*Producto)(nil),              // 2: apptransportistas.Producto
+	(*EntregaResponse)(nil),       // 3: apptransportistas.EntregaResponse
+	(*PruebaEntrega)(nil),         // 4: apptransportistas.PruebaEntrega
+	(*PruebaEntregaResponse)(nil), // 5: apptransportistas.PruebaEntregaResponse
+	(*LoginRequest)(nil),          // 6: apptransportistas.LoginRequest
+	(*LoginResponse)(nil),         // 7: apptransportistas.LoginResponse
+	(*Ubicacion)(nil),             // 8: apptransportistas.Ubicacion
+	(*TrackingResponse)(nil),      // 9: apptransportistas.TrackingResponse
 }
 var file_apptransportistas_proto_depIdxs = []int32{
-	5, // 0: apptransportistas.Guia.productos:type_name -> apptransportistas.Producto
-	4, // 1: apptransportistas.AppTransportistasService.EnviarEntregas:input_type -> apptransportistas.Guia
-	0, // 2: apptransportistas.AppTransportistasService.ObtenerDespachos:input_type -> apptransportistas.DespachoRequest
-	6, // 3: apptransportistas.AppTransportistasService.EnviarDepositos:input_type -> apptransportistas.Deposito
-	7, // 4: apptransportistas.AppTransportistasService.EnviarPruebasEntrega:input_type -> apptransportistas.PruebaEntrega
-	1, // 5: apptransportistas.AppTransportistasService.EnviarEntregas:output_type -> apptransportistas.EntregaResponse
-	4, // 6: apptransportistas.AppTransportistasService.ObtenerDespachos:output_type -> apptransportistas.Guia
-	2, // 7: apptransportistas.AppTransportistasService.EnviarDepositos:output_type -> apptransportistas.DepositoResponse
-	3, // 8: apptransportistas.AppTransportistasService.EnviarPruebasEntrega:output_type -> apptransportistas.PruebaEntregaResponse
-	5, // [5:9] is the sub-list for method output_type
-	1, // [1:5] is the sub-list for method input_type
+	2, // 0: apptransportistas.Guia.productos:type_name -> apptransportistas.Producto
+	0, // 1: apptransportistas.AppTransportistasService.ObtenerDespachos:input_type -> apptransportistas.DespachoRequest
+	1, // 2: apptransportistas.AppTransportistasService.EnviarEntregas:input_type -> apptransportistas.Guia
+	4, // 3: apptransportistas.AppTransportistasService.EnviarPruebasEntrega:input_type -> apptransportistas.PruebaEntrega
+	6, // 4: apptransportistas.AppTransportistasService.LoginAdmin:input_type -> apptransportistas.LoginRequest
+	8, // 5: apptransportistas.AppTransportistasService.EnviarTracking:input_type -> apptransportistas.Ubicacion
+	1, // 6: apptransportistas.AppTransportistasService.ObtenerDespachos:output_type -> apptransportistas.Guia
+	3, // 7: apptransportistas.AppTransportistasService.EnviarEntregas:output_type -> apptransportistas.EntregaResponse
+	5, // 8: apptransportistas.AppTransportistasService.EnviarPruebasEntrega:output_type -> apptransportistas.PruebaEntregaResponse
+	7, // 9: apptransportistas.AppTransportistasService.LoginAdmin:output_type -> apptransportistas.LoginResponse
+	9, // 10: apptransportistas.AppTransportistasService.EnviarTracking:output_type -> apptransportistas.TrackingResponse
+	6, // [6:11] is the sub-list for method output_type
+	1, // [1:6] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -623,7 +731,7 @@ func file_apptransportistas_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_apptransportistas_proto_rawDesc), len(file_apptransportistas_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
